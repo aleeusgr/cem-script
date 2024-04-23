@@ -24,18 +24,20 @@
               final.haskell-nix.hix.project {
                 src = ./.;
                 evalSystem = "x86_64-linux";
+                inputMap = { "https://chap.intersectmbo.org/" = CHaP; };
               };
           })
         ];
         pkgs = import nixpkgs { inherit system overlays; inherit (haskellNix) config; };
         flake = pkgs.hixProject.flake {};
+        # = pkgs.haskell-nix.cabalProject {
+        #   src = ./.;
+        #   inputMap = { "https://chap.intersectmbo.org/" = CHaP; };
+        # };
       in flake // {
         legacyPackages = pkgs;
 
-        packages.default = pkgs.haskell-nix.cabalProject' {
-          src = ./.;
-          inputMap = { "https://chap.intersectmbo.org/" = CHaP; };
-        };
+        packages.default = flake.packages."hello:exe:cem-script";
       });
 
   # --- Flake Local Nix Configuration ----------------------------
