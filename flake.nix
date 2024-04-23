@@ -26,6 +26,16 @@
                 evalSystem = "x86_64-linux";
                 inputMap = { "https://chap.intersectmbo.org/" = CHaP; };
               };
+            haskell-nix = prev.haskell-nix or {} // {
+            extraPkgconfigMappings = prev.haskell-nix.extraPkgconfigMappings or {} // {
+              "libblst" = [ "libblst" ];
+              # map libsoidum to our libsodium-vrf, if you include the iohk-nix
+              # crypto overlay, you _do_ want the custom libsoidum.
+              "libsodium" = [ "libsodium-vrf" ];
+              # for secp256k1, haskell.nix already has that mapping, thus we don't
+              # need to inject anything extra here.
+            };
+          };
           })
         ];
         pkgs = import nixpkgs { inherit system overlays; inherit (haskellNix) config; };
