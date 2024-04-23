@@ -1,6 +1,6 @@
 -- Custom repository for cardano haskell packages
 repository cardano-haskell-packages
-  url: https://input-output-hk.github.io/cardano-haskell-packages
+  url: https://chap.intersectmbo.org/
   secure: True
   root-keys:
     3e0cce471cf09815f930210f7827266fd09045445d65923e6d0238a6cd15126f
@@ -28,7 +28,7 @@ source-repository-package
   type: git
   location: https://github.com/IntersectMBO/cardano-ledger
   tag: 6e2d37cc0f47bd02e89b4ce9f78b59c35c958e96
-  --sha256: 6+Os/mQDzBOU+TkTD+n/T1MFcI+Mn0/tcBMJhLRfqyA=
+  --sha256: sha256-jPn6ZQxr+L0c4/zv4KTKWhV77YPbxRo7yeV6aozIo3w=
   subdir:
     libs/cardano-ledger-test
 
@@ -36,6 +36,6 @@ source-repository-package
   type: git
   location: https://github.com/mlabs-haskell/clb
   tag: b0717b7a4e84796dbbd3db25f95230fdbf8b4651
-  --sha256: 6+Os/mQDzBOU+TkTD+n/T1MFcI+Mn0/tcBMJhLRfqyA=
+  --sha256: sha256-aRKwrVJnoekD0j3hax4/ncBLv08LXiIp5/3ZaVnGGbw=
 
 packages: .
